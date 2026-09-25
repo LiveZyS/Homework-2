@@ -25,6 +25,36 @@ public class ParkingLot {
 
     }
 
-    
+    public int ParkedCar(Car car) {
+
+        for (int i =0; i < Spots.length; i++) {
+            if (Spots[1].car == null && car.Handicap == true){
+                return i;
+            }
+            if (Spots[i].car == null && car.Handicap == false) {
+                return i;
+            }
+            else {
+                return -1;
+            }
+
+        }
+    }
+
+    public String toString(){
+
+        int HandicapSpots = 0;
+        int NonHandicapSpots = 0;
+
+        for (ParkingSpot spot : Spots) {
+            if (spot.isHandicap()) {
+                HandicapSpots++;
+            } else {
+                NonHandicapSpots++;
+            }
+        }
+
+        return HandicapSpots + " " + NonHandicapSpots;
+    }
 
 }
