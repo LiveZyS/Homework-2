@@ -1,8 +1,3 @@
-/*
-Contains two strings for “make” and “color”. It also contains a boolean representing whether
-this car has handicap accessible parking.
-Implements a constructor that takes the aforementioned three instance variables. 
-*/
 public class Car {
 
     //Strings for make and color:
@@ -10,11 +5,39 @@ public class Car {
     public String Color;
     public boolean Handicap;
 
+    //Constructor
     public Car (String Make, String Color, boolean Handicap) {
 
         this.Make = Make;
         this.Color = Color;
-        
+        this.Handicap = Handicap;
+
+    }
+
+    public void SetMake(String NewMake) {
+
+        Make = NewMake;
+    }
+
+    public void SetColor(String NewColor) {
+
+        Color = NewColor;
+    }
+
+    public void SetHandicap(boolean NewHandicap) {
+
+        Handicap = NewHandicap;
+    }
+
+    //Returns
+    public boolean Handicap() {
+
+        return Handicap;
+    }
+
+    public String toString() {
+
+        return Color + " " + Make;
     }
 
 }

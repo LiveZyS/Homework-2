@@ -5,4 +5,21 @@ Implements a constructor that takes the aforementioned boolean.
 */
 public class ParkingSpot {
 
+    public Car car;
+    public boolean Handicap;
+
+    public ParkingSpot(boolean Handicap) {
+
+        this.Handicap = Handicap;
+        this.car = null;
+
+    }
+
+
+    public boolean isHandicap() {
+
+        return Handicap;
+    }
+
+
 }
