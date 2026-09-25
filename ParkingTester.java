@@ -15,7 +15,21 @@ public class ParkingTester {
 
     public static void main(String[] args) {
 
+        ParkingLot lot = new ParkingLot();
+
+        System.out.println(lot.toString());
         
+        Car car1 = new Car("subaru", "blue", true);
+        Car car2 = new Car("ford", "red", false);
+
+        lot.ParkCar(car1);
+        lot.ParkCar(car2);
+        
+        System.out.println(lot.toString());
+
+        lot.RemoveCar(1);
+
+        System.out.println(lot.toString());
     }
 }
 

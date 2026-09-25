@@ -15,11 +15,19 @@ public class ParkingSpot {
 
     }
 
-
     public boolean isHandicap() {
 
         return Handicap;
     }
 
+    public Car GetCar() {
+
+        return car;
+    }
+
+    public void ParkCar (Car car) {
+
+        this.car = car;
+    }
 
 }

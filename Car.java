@@ -24,14 +24,13 @@ public class Car {
         Color = NewColor;
     }
 
-    public void SetHandicap(boolean NewHandicap) {
+    public void SetHandicap(boolean isHandicap) {
 
-        Handicap = NewHandicap;
+        Handicap = isHandicap;
     }
 
     //Returns
-    public boolean Handicap() {
-
+    public boolean isHandicap() {
         return Handicap;
     }
 

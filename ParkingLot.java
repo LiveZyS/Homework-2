@@ -12,49 +12,66 @@ standard parking spots available separated by a single space (X Y)
 
 public class ParkingLot {
 
-    ParkingSpot [] Spots = new ParkingSpot[8];{
+    public ParkingSpot[] spots;
 
-    Spots[0] = new  ParkingSpot(true);
-    Spots[1] = new  ParkingSpot(true);
-    Spots[2] = new  ParkingSpot(false);
-    Spots[3] = new  ParkingSpot(false);
-    Spots[4] = new  ParkingSpot(false);
-    Spots[5] = new  ParkingSpot(false);
-    Spots[6] = new  ParkingSpot(false);
-    Spots[7] = new  ParkingSpot(false);
+    public ParkingLot() {
+
+        spots = new ParkingSpot [8];
+        spots[0] = new ParkingSpot (true);
+        spots[1] = new ParkingSpot (true);
+        spots[2] = new ParkingSpot (false);
+        spots[3] = new ParkingSpot (false);
+        spots[4] = new ParkingSpot (false);
+        spots[5] = new ParkingSpot (false);
+        spots[6] = new ParkingSpot (false);
+        spots[7] = new ParkingSpot (false);
+        spots[8] = new ParkingSpot (false);
 
     }
 
-    public int ParkedCar(Car car) {
+    public int ParkCar (Car car) {
 
-        for (int i =0; i < Spots.length; i++) {
-            if (Spots[1].car == null && car.Handicap == true){
-                return i;
-            }
-            if (Spots[i].car == null && car.Handicap == false) {
-                return i;
-            }
-            else {
-                return -1;
-            }
-
-        }
-    }
-
-    public String toString(){
-
-        int HandicapSpots = 0;
-        int NonHandicapSpots = 0;
-
-        for (ParkingSpot spot : Spots) {
-            if (spot.isHandicap()) {
-                HandicapSpots++;
-            } else {
-                NonHandicapSpots++;
+        if (car.isHandicap()) {
+            for (int i = 0; i < spots.length; i++) {
+                if (spots[i].isHandicap() && spots[i].GetCar() == null) {
+                    spots[i].ParkCar(car);
+                    return i;
+                }
             }
         }
-
-        return HandicapSpots + " " + NonHandicapSpots;
+        for (int i = 0; i < spots.length; i++) {
+            if (!spots[i].isHandicap() && spots [i].GetCar() == null) {
+                spots[i].ParkCar(car);
+                return i;
+            }
+        }
+        return -1;
     }
 
+    public Car RemoveCar (int index) {
+
+        Car RemovedCar = spots[index].GetCar();
+        spots[index].ParkCar(null);
+        return RemovedCar;
+    }
+
+    public String toString() {
+
+        int HandicapCount = 0;
+        int NonHandicapCount = 0;
+
+        for (int i = 0; i < spots.length; i++) {
+            if (spots[i].GetCar() == null) {
+                if (spots[i].isHandicap()) {
+                    HandicapCount++;
+                }
+                else {
+                    NonHandicapCount++;
+                }
+                }
+         }
+
+         return HandicapCount + " " + NonHandicapCount;
+     }
 }
+
